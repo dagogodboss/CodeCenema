@@ -15,13 +15,16 @@
 
   <div class="films row">
     @foreach($films as $film)
-      <div class="col col-12 col-sm-6 col-lg-4 mb-4">
+      <div class="col col-12 col-sm-6 col-lg-6 mb-4 ">
         @include('film-card')
         @if($isLocal)
           <div class="text-center small card-actions text-muted mt-1">
             <a href="{{ route('films.edit', $film) }}">Edit</a>
           </div>
         @endif
+      </div>
+      <div class="col col-12 col-sm-6 col-lg-4 mb-4 ">
+        @include('film-ticket')
       </div>
     @endforeach
   </div>

@@ -10,33 +10,25 @@ class CommentsTableSeeder extends Seeder {
    */
   public function run() {
     $table = DB::table('comments');
-    $user1 = \App\User::where('email', '=', 'dagogodboss@gmail.com')->firstOrFail();
-    $user2 = \App\User::where('email', '=', 'donationmatrix@gmail.com')->firstOrFail();
 
-    $commentDirs = File::directories(base_path("films-seeder/comments"));
-
-    foreach ($commentDirs as $dir) {
-
-      $filmSlug = pathinfo($dir, PATHINFO_BASENAME);
-      if ($film = $this->getFilm($filmSlug)) {
-
-        $files = File::files($dir);
-        foreach ($files as $file) {
-          if ($commentBody = File::sharedGet($file)) {
-            $table->insert([
-              'body'             => $commentBody,
-              'user_id'          => $lukas->id,
-              'commentable_id'   => $film->id,
-              'commentable_type' => $film->getMorphClass(),
-              'created_at'       => $now,
-            ]);
-          }
-        }
-      }
+    $movies = \App\Film::all(); 
+    foreach ($movies as $movie) {
+      $comment =  $movie->name ." is a very interesting movie. As both the actors and directors did their possible best to give the movie its quality and sound effect is very ok.";
+      $table->insert([
+        'created_at'       => \Carbon\Carbon::now(),
+        'user_id'          => 1,
+        'commentable_id'   => $movie->id,
+        'body'             => $comment,
+        'commentable_type' => $movie->getMorphClass(),
+      ]);
+      $comment =  $movie->name ." users remarks are encouraging and people from the cinema where pleased with what they saw from the cinema. And the time I spent in the cinema was worth it";
+      $table->insert([
+        'created_at'       => \Carbon\Carbon::now(),
+        'user_id'          => 2,
+        'commentable_id'   => $movie->id,
+        'body'             => $comment,
+        'commentable_type' => $movie->getMorphClass(),
+      ]);
     }
-  }
-
-  private function getFilm(string $filmSlug) {
-    return \App\Film::whereSlug($filmSlug)->firstOrFail();
   }
 }

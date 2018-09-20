@@ -69,7 +69,7 @@ class GenresTableSeeder extends Seeder {
 
     $table->insert([
       'slug'       => "sci-fi",
-      'name'       => "Sci-Fi",
+      'name'       => "Sci-Fiction",
       'created_at' => $now,
     ]);
 
