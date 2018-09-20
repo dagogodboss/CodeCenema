@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider {
    * @return void
    */
   public function boot() {
+    Schema::defaultStringLength(191);
     Image::observe(ImageObserver::class);
     Film::observe(FilmObserver::class);
     User::observe(UserObserver::class);
