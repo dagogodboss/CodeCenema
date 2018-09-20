@@ -1,2 +1,2 @@
-# FilmsAps
-codeline.io laravel test task
+CodeCenema
+A film application build to allow users rate, add, see movie details
