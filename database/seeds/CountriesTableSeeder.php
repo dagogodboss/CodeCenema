@@ -11,7 +11,7 @@ class CountriesTableSeeder extends Seeder {
   public function run() {
     $table = DB::table('countries');
     $table->insert([
-      'code'  => "IND",
+      'code'  => "IN",
       'title' => "India",
     ]);
     $table->insert([
