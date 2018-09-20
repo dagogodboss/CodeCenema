@@ -3,13 +3,14 @@
 namespace App\Providers;
 
 use App\Film;
+use App\User;
 use App\Image;
 use App\Observers\FilmObserver;
 use App\Observers\ImageObserver;
 use App\Observers\UserObserver;
-use App\User;
-use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class AppServiceProvider extends ServiceProvider {
