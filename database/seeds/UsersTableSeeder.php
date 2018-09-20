@@ -9,14 +9,20 @@ class UsersTableSeeder extends Seeder {
    * @return void
    */
   public function run() {
-    $now = new DateTime();
     $table = DB::table('users');
 
     $table->insert([
-      'name'       => "Lukas Pierce",
-      'email'      => "kosha.industry@gmail.com",
-      'password'   => Hash::make('kosha123'),
-      'created_at' => $now,
+      'name'       => "Ilamini Ayebatonye",
+      'email'      => "dagogodboss@gmail.com",
+      'password'   => Hash::make('1234dagogo'),
+      'created_at' => Carbon\Carbon::now(),
+    ]);
+
+    $table->insert([
+      'name'       => "Ilamini Dagogo",
+      'email'      => "dagogobusness@gmail.com",
+      'password'   => Hash::make('1234Dagogo%'),
+      'created_at' => Carbon\Carbon::now(),
     ]);
   }
 }

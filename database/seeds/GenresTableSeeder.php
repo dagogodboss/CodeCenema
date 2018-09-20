@@ -44,6 +44,12 @@ class GenresTableSeeder extends Seeder {
     ]);
 
     $table->insert([
+      'slug'       => "horror",
+      'name'       => "Horror",
+      'created_at' => $now,
+    ]);
+
+    $table->insert([
       'slug'       => "action",
       'name'       => "Action",
       'created_at' => $now,

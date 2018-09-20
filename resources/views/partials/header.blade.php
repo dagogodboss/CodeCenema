@@ -1,4 +1,4 @@
-<header id="header" class="d-flex align-items-center bg-info">
+<header id="header" class="d-flex align-items-center bg-info" style="min-height: 100px">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -7,7 +7,7 @@
 
       <div class="col-auto">
         @if(Auth::check())
-          <div class="dropdown">
+          <div class="dropdown text-white">
             <b class="user-name dropdown-toggle"
                data-toggle="dropdown"><span class="align-top">{{ Auth::user()->name }}</span></b>
             <div class="dropdown-menu dropdown-menu-right">

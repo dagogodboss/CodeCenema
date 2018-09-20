@@ -3,7 +3,7 @@
 @section('title', __("Register"))
 
 @section('content')
-  <form class="card" method="post" action="{{ route('register') }}">
+  <form class="card bg-info text-white" method="post" action="{{ route('register') }}">
     {{ csrf_field() }}
     <div class="card-body">
       <h4 class="card-title">Register on Films App</h4>
@@ -44,7 +44,7 @@
         <button type="submit" class="btn btn-primary px-4">
           Register
         </button>
-        <a href="{{ route('login') }}">Have an account?</a>
+        <a href="{{ route('login') }}" class="text-white">Have an account?</a>
       </div>
     </div>
   </form>

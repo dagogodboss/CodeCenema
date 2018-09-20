@@ -67,7 +67,7 @@ class FilmsController extends Controller {
       'genre'         => 'required|integer|exists:genres,id',
       'rating'        => 'required|integer|between:1,5',
       'ticket_price'  => 'required|numeric|min:0|max:99.99',
-      'photo'         => "$photoRequiredRule|image|mimes:jpg,jpeg,png|max:2048",
+      'photo'         => "required|max:2048",
     ]);
 
     $film->name = $request->input('name');

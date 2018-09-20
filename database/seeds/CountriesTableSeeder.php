@@ -11,6 +11,10 @@ class CountriesTableSeeder extends Seeder {
   public function run() {
     $table = DB::table('countries');
     $table->insert([
+      'code'  => "IND",
+      'title' => "India",
+    ]);
+    $table->insert([
       'code'  => "us",
       'title' => "USA",
     ]);
@@ -25,6 +29,10 @@ class CountriesTableSeeder extends Seeder {
     $table->insert([
       'code'  => "fr",
       'title' => "France",
+    ]);
+    $table->insert([
+      'code'  => "Ng",
+      'title' => "Nigeria",
     ]);
   }
 

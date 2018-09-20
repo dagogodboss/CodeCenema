@@ -136,7 +136,7 @@
         @endif
 
         @if($film->photo)
-          <img src="{{ $film->photo->resize(300, 300)->path }}" class="d-block mt-3">
+          <img src="{{ $film->photo->path }}" class="d-block mt-3">
         @endif
       </div>
     </div>

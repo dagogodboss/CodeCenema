@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class FilmsTableSeeder extends Seeder {
   /**
    * Run the database seeds.
@@ -10,45 +10,45 @@ class FilmsTableSeeder extends Seeder {
    */
   public function run() {
     $table = DB::table('films');
-    $now = new DateTime();
+    $now =  Carbon::now();
 
     //Thor: Ragnarok
     $table->insert([
-      'name'          => "Thor: Ragnarok",
-      'slug'          => 'thor-ragnarok',
-      'description'   => 'Imprisoned, the almighty Thor finds himself in a lethal gladiatorial contest against the Hulk, his former ally. Thor must fight for survival and race against time to prevent the all-powerful Hela from destroying his home and the Asgardian civilization.',
-      'realease_date' => '2017-11-03',
+      'name'          => "Fantastic Beasts: The Crimes of Grindelwald",
+      'slug'          => 'fantastic-beasts',
+      'description'   => 'Magizoologist Newt Scamander joins forces with young Albus Dumbledore to prevent the devious Gellert Grindelwald from raising pure-blood wizards to rule over all non-magical beings.',
+      'realease_date' => '16 November 2018',
       'rating'        => 5,
-      'ticket_price'  => 5.50,
+      'ticket_price'  => 3.50,
       'country_id'    => $this->getCountry('us')->id,
-      'genre_id'      => $this->getGenre('action')->id,
-      'photo_id'      => $this->uploadPhoto('thor_ragnarok.jpg')->id,
+      'genre_id'      => $this->getGenre('drama')->id,
+      'photo_id'      => $this->uploadPhoto('fantastic-beasts.jpg')->id,
       'created_at'    => $now,
     ]);
 
     //Blade Runner 2049
     $table->insert([
-      'name'          => "Blade Runner 2049",
-      'slug'          => 'blade-runner-2049',
-      'description'   => "A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years.",
-      'realease_date' => '2017-10-05',
-      'rating'        => 1,
+      'name'          => "Incredibles  2",
+      'slug'          => 'incredibles-two',
+      'description'   => "Everyone’s favorite family of superheroes is back in “Incredibles 2” – but this time Helen (voice of Holly Hunter) is in the spotlight, leaving Bob (voice of Craig T. Nelson) at home with Violet (voice of Sarah Vowell) and Dash (voice of Huck Milner) to navigate the day-to-day heroics of “normal” life. It’s a tough transistion for everyone, made tougher by the fact that the family is still unaware of baby Jack-Jack’s emerging superpowers. When a new villain hatches a brilliant and dangerous plot, the family and Frozone (voice of Samuel L. Jackson) must find a way to work together again—which is easier said than done, even when they’re all Incredible.",
+      'realease_date' => '5 June 2018',
+      'rating'        => 3,
       'ticket_price'  => 5.35,
       'country_id'    => $this->getCountry('uk')->id,
       'genre_id'      => $this->getGenre('sci-fi')->id,
-      'photo_id'      => $this->uploadPhoto('blade-runner-2049.jpg')->id,
+      'photo_id'      => $this->uploadPhoto('incredibles-two.jpg')->id,
       'created_at'    => $now,
     ]);
 
     //Dunkirk
     $table->insert([
-      'name'          => "Dunkirk",
-      'slug'          => "dunkirk-2017",
-      'description'   => "Allied soldiers from Belgium, the British Empire and France are surrounded by the German Army, and evacuated during a fierce battle in World War II.",
-      'realease_date' => '2017-07-19',
-      'rating'        => 1,
+      'name'          => "The Nun",
+      'slug'          => "the-nun-2018",
+      'description'   => "When a young nun at a cloistered abbey in Romania takes her own life, a priest with a haunted past and a novitiate on the threshold of her final vows are sent by the Vatican to investigate. Together, they uncover the order's unholy secret. Risking not only their lives but their faith and their very souls, they confront a malevolent force in the form of a demonic nun",
+      'realease_date' => '7 September 2018',
+      'rating'        => 2,
       'ticket_price'  => 3.20,
-      'country_id'    => $this->getCountry('fr')->id,
+      'country_id'    => $this->getCountry('us')->id,
       'genre_id'      => $this->getGenre('drama')->id,
       'photo_id'      => $this->uploadPhoto('dunkirk.jpg')->id,
       'created_at'    => $now,
@@ -56,15 +56,15 @@ class FilmsTableSeeder extends Seeder {
 
     //Logan
     $table->insert([
-      'name'          => "Logan",
-      'slug'          => "logan-2017",
-      'description'   => "In the near future, a weary Logan cares for an ailing Professor X, somewhere on the Mexican border. However, Logan's attempts to hide from the world, and his legacy, are upended when a young mutant arrives, pursued by dark forces.",
-      'realease_date' => '2017-03-02',
-      'rating'        => 3,
-      'ticket_price'  => 4.20,
+      'name'          => "Slender Man",
+      'slug'          => "slender-man",
+      'description'   => "Small-town best friends Hallie, Chloe, Wren and Katie go online to try and conjure up the Slender Man -- a tall, thin, horrifying figure whose face has no discernible features. Two weeks later, Katie mysteriously disappears during a class trip to a historic graveyard. Determined to find her, the girls soon suspect that the legend of the Slender Man may be all too real.",
+      'realease_date' => ' 10 August 2018',
+      'rating'        => 4,
+      'ticket_price'  => 2.20,
       'country_id'    => $this->getCountry('us')->id,
-      'genre_id'      => $this->getGenre('action')->id,
-      'photo_id'      => $this->uploadPhoto('logan.jpg')->id,
+      'genre_id'      => $this->getGenre('horror')->id,
+      'photo_id'      => $this->uploadPhoto('slender-man.jpg')->id,
       'created_at'    => $now,
     ]);
 
@@ -98,7 +98,7 @@ class FilmsTableSeeder extends Seeder {
     $name = uniqid() . ".$ext";
     $imagePath = "/uploads/$name";
 
-    $from = base_path("/films-seeder/images/$filename");
+    $from = base_path("/movie-seeder/images/$filename");
     $dest = public_path($imagePath);
 
     File::copy($from, $dest);

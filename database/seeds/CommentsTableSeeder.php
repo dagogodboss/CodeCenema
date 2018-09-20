@@ -10,8 +10,8 @@ class CommentsTableSeeder extends Seeder {
    */
   public function run() {
     $table = DB::table('comments');
-    $now = new DateTime();
-    $lukas = \App\User::where('email', '=', 'kosha.industry@gmail.com')->firstOrFail();
+    $user1 = \App\User::where('email', '=', 'dagogodboss@gmail.com')->firstOrFail();
+    $user2 = \App\User::where('email', '=', 'donationmatrix@gmail.com')->firstOrFail();
 
     $commentDirs = File::directories(base_path("films-seeder/comments"));
 
