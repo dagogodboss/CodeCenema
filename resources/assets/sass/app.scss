@@ -1,0 +1,169 @@
+@import "bootstrap-4/bootstrap";
+@import "mixins";
+
+html, body, main {
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
+
+#header {
+  background: #fff;
+  height: 50px;
+  margin-bottom: 30px;
+  border-bottom: 1px $hr-border-color solid;
+  .logo {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.3rem;
+    &:hover {
+    }
+  }
+}
+
+.film-form {
+  //width: 500px;
+}
+
+.card-img-top {
+  display: block;
+  overflow: hidden;
+}
+
+.card-actions {
+  a {
+    color: inherit;
+  }
+}
+
+.film-card {
+  .card-img-top {
+    @include aspect-ratio-img(1/1);
+    @include darkness();
+    > img {
+      object-position: top;
+    }
+  }
+  .film-short {
+    @include max-lines(3);
+  }
+  .card-title {
+    margin-bottom: 0.25rem;
+    a {
+      color: inherit;
+      &:hover {
+        text-decoration: none;
+        .film-name {
+          color: tomato;
+        }
+      }
+    }
+  }
+  .comments-count {
+    font-size: 12px;
+    color: $gray-600;
+  }
+  .star-rating {
+    margin-bottom: 0;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.star-rating {
+  display: flex;
+  font-size: 90%;
+  .fa {
+    &.fa-star {
+      color: gold;
+      text-shadow: 1px 1px 0 goldenrod;
+    }
+    &.fa-star-o {
+      color: $gray-500;
+    }
+  }
+  > li {
+    + li {
+      margin-left: 0.3em;
+    }
+  }
+}
+
+.object-props {
+  dl {
+    dt {
+      float: left;
+      clear: left;
+      margin-right: 1rem;
+    }
+    dd {
+      float: left;
+    }
+  }
+}
+
+.film-inner {
+  margin-bottom: 100px;
+  .film-caver {
+    width: 300px;
+  }
+  .star-rating {
+    font-size: 1.2rem;
+  }
+  .object-props {
+    dl {
+      dt {
+        width: 110px;
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .star-rating {
+      font-size: 1rem;
+    }
+    .page-title {
+      font-size: 20px;
+    }
+  }
+}
+
+.breadcrumb {
+  padding: 0;
+  background: 0;
+  .breadcrumb-item,
+  .breadcrumb-item:before {
+    color: $gray-600;
+  }
+  a.breadcrumb-item {
+    &:hover {
+      color: $gray-800;
+    }
+  }
+}
+
+.auth-content {
+  width: 450px;
+  max-width: 100%;
+  margin: 50px auto;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.img-zoom {
+  cursor: zoom-in;
+}
+
+.comment {
+  .user-name {
+    font-weight: 500;
+  }
+}
